@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/potwierdzenie-przybycias",
+      "handler": "potwierdzenie-przybycia.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/potwierdzenie-przybycias/count",
+      "handler": "potwierdzenie-przybycia.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/potwierdzenie-przybycias/:id",
+      "handler": "potwierdzenie-przybycia.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/potwierdzenie-przybycias",
+      "handler": "potwierdzenie-przybycia.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/potwierdzenie-przybycias/:id",
+      "handler": "potwierdzenie-przybycia.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/potwierdzenie-przybycias/:id",
+      "handler": "potwierdzenie-przybycia.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "potwierdzenie_przybycia",
+  "info": {
+    "name": "PotwierdzeniePrzybycia"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Kto": {
+      "type": "string"
+    },
+    "Przyjedzie": {
+      "type": "boolean"
+    }
+  }
+}

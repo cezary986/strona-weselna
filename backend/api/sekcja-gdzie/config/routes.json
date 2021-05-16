@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sekcja-gdzie",
+      "handler": "sekcja-gdzie.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sekcja-gdzie",
+      "handler": "sekcja-gdzie.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sekcja-gdzie",
+      "handler": "sekcja-gdzie.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

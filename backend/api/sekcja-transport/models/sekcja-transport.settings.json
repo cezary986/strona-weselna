@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "sekcja_transports",
+  "info": {
+    "name": "Sekcja \"Transport\""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Tytul": {
+      "type": "string"
+    },
+    "Tekst": {
+      "type": "text"
+    }
+  }
+}
