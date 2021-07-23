@@ -1,6 +1,12 @@
 from django.db import models
 from datetime import datetime
 
+from django.db.models.fields import BooleanField, CharField
+
+
+class ArrivalConfirmation(models.Model):
+    Kto = CharField(null=False, max_length=500)
+    Przyjedzie = BooleanField(null=False)
 
 class SectionConfig(models.Model):
     id = models.IntegerField(null=False, primary_key=True)

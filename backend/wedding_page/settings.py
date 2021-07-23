@@ -28,7 +28,17 @@ SECRET_KEY = 'django-insecure-8r@@df$3s7-v!n-2%kx(_hyo&9tt*-$*6&=w+1pn_=yo1%=kr@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
+
+CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+CORS_ALLOW_CREDENTIALS = True
+
+
+# STATIC_ROOT   = "/home/myusername/myproject/static"
+# # or, eg,
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
 # Application definition
@@ -53,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'wedding_page.enable_cors.CorsEnableMiddleware'
 ]
 
 ROOT_URLCONF = 'wedding_page.urls'

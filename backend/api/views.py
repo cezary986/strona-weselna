@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.http.response import HttpResponse, HttpResponseServerError
 from api import VERSION
 from django.http import JsonResponse
 from rest_framework.views import APIView
@@ -17,7 +18,28 @@ from api.models import \
     WhereSection, \
     TransportSection, \
     TrzaskanieSection, \
-    ContactSection
+    ContactSection, \
+    ArrivalConfirmation
+
+
+import json
+
+
+def save_data(request):
+    if request.method == 'POST':
+        # request.raw_post_data w/ Django < 1.4
+        json_data = json.loads(request.body)
+        try:
+            who = json_data['Kto']
+            will_arrive = json_data['Przyjedzie']
+            confirmation = ArrivalConfirmation.objects.create(
+                Kto=who,
+                Przyjedzie=will_arrive
+            )
+            confirmation.save()
+        except KeyError:
+            HttpResponseServerError("Malformed data!")
+        HttpResponse("Got json data")
 
 
 class VersionView(APIView):
@@ -32,6 +54,8 @@ class VersionView(APIView):
         return JsonResponse(serializer.data)
 
 # Konfiguracja sekcji
+
+
 class SectionConfigView(APIView):
 
     @swagger_auto_schema(
@@ -44,6 +68,8 @@ class SectionConfigView(APIView):
         return JsonResponse(serializer.data)
 
 # Sekcja Kiedy
+
+
 class WhenSectionView(APIView):
 
     @swagger_auto_schema(
@@ -106,7 +132,6 @@ class ContactSectionView(APIView):
         when_section = ContactSection.objects.all()[0]
         serializer = ContactSectionSerializer(when_section)
         return JsonResponse(serializer.data)
-
 
 
 def when_section(request):
